@@ -4,7 +4,6 @@ require('antd/lib/button/style/css');
 require('./userinput.less');
 import React from 'react';
 import {Input,Button} from 'antd';
-import {UserLogin} from 'actions/user';
 
 var userInfo={
     Username:'',
@@ -18,11 +17,12 @@ class UserInput extends React.Component{
         userInfo.pwd=e.target.value;
     }
     handleClick=(e)=>{
-        var userName=userInfo.Username,
-            pwd=userInfo.pwd;
-            
-            UserLogin('/api/User/Login',{UserName:userName,PassWord:pwd});
+       this.props.login(userInfo.Username,userInfo.Username);
+
         e.stopPropagation();
+    }
+    getFallBack=(res)=>{
+        console.log(res);
     }
     render(){
         return(
