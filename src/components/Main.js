@@ -1,6 +1,6 @@
 
 require('../css/main.less');
-require('../css/iconfont.css');
+require('../font/iconfont.css');
 import React from 'react';
 import Login from './login/Login';
 
