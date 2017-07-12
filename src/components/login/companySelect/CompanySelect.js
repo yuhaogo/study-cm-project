@@ -1,13 +1,14 @@
 import React from 'react';
 import { Select } from 'antd'
-class CompanySelect extends Component{
+class CompanySelect extends React.Component{
 
     render(){
-        return{
+        return(
             <Select>
                 <Option value="jack">Jack</Option>
             </Select>
-        }
+        )
     }
 
 }
+export default CompanySelect;

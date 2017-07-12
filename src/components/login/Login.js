@@ -1,8 +1,10 @@
 require('./login.less');
 
 import React from 'react';
+import {connect} from 'react-redux';
 import UserInput from './userInput/UserInput'
 import {UserLogin} from 'actions/user';
+import CompanySelect from './companySelect/CompanySelect'
 
  
 
@@ -11,35 +13,31 @@ class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.states={
-            status:'loginUser'
-        }
     }
     loginUser=(u,p)=> {
         var userName=u,
             pwd=p;
-        const _data= UserLogin('/api/User/Login',{UserName:userName,PassWord:pwd},this.getFallBack);
-        debugger;
-        const companyList=_data.Result;
-        console.log(_data);
-        if(_data.SuccessFult){
-            this.setState={
-                status:'company'
-            }
-        }
+        let {dispatch}=this.props;
+        dispatch(UserLogin('/api/User/Login',{UserName:userName,PassWord:pwd},this.getFallBack));
     }
     
     render(){
+        const {loginType}=this.props.loginTypes;
         return(
             <div className="loginMain">
                 <div className="login-input">
                     <h2>electronic Trial Master File System</h2>
-                    {this.states.status=='loginUser'?<UserInput login={this.loginUser}  />:<CompanySelect />}
+                    {loginType==='userLogin'?<UserInput login={this.loginUser}  />:<CompanySelect />}
                 </div>
             </div>
         )
     }
     
 }
-
-export default Login;
+function mapStateToProps(state){
+    const { loginTypes }=state;
+    return {
+        loginTypes
+    }
+}
+export default connect(mapStateToProps)(Login);

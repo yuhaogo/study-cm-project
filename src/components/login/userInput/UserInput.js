@@ -17,7 +17,7 @@ class UserInput extends React.Component{
         userInfo.pwd=e.target.value;
     }
     handleClick=(e)=>{
-       this.props.login(userInfo.Username,userInfo.Username);
+       this.props.login(userInfo.Username,userInfo.pwd);
 
         e.stopPropagation();
     }
@@ -30,7 +30,7 @@ class UserInput extends React.Component{
                 <ul>
                     <li className="login-input-item"><Input onChange={this.handleUserChange} className="type-input" addonBefore={<i className="tmfont tm-icon-userportrait"></i>} placeholder="Username"  /></li>
                     <li className="login-input-item"><Input onChange={this.handlePwdChange} className="type-input" type="password"  addonBefore={<i className="tmfont tm-icon-lock"></i>} placeholder="Password"  /></li>
-                    <li className="login-input-item"><Button className="type-button loging"  type="primary" onClick={this.handleClick} >Login</Button></li>
+                    <li className="login-input-item"><Button className="type-button loging"  type="primary" onClick={this.handleClick} >Loging</Button></li>
                 </ul>
             </div>
         )

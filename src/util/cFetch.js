@@ -5,8 +5,9 @@ require('es6-promise').polyfill();
 import { API_CONFIG } from './../config/api';
 import { Modal } from 'antd';
 
-function checkOut401(res,tes) {
-    console.log(tes);
+function checkOut401(res) {
+    debugger;
+    console.log(res.headers.get('Content-Type'));
     if(res.status===401){
         Modal.error({
             title: '登陆验证过期',
@@ -16,9 +17,9 @@ function checkOut401(res,tes) {
     }
     return res;
 }
-
 function dataJson(res) {
-    return res.json();
+    res=res.json();
+    return res;
 }
 export const cFetch=(apiUrl,param)=>{
     const baseUrl=API_CONFIG.host+apiUrl;
@@ -26,7 +27,6 @@ export const cFetch=(apiUrl,param)=>{
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
-    debugger;
     return fetch(baseUrl,param)
     .then(checkOut401)
     .then(dataJson)
