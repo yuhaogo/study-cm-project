@@ -1,4 +1,49 @@
 .index-head{
     height: 50px;
-    line-height: 50px;
+    .index-head-left{
+        margin: 10px 0 0 10px;
+        float: left;
+        .system-logo{
+            display: inline-block;
+            line-height: 30px;
+        }
+        .system-name{
+            padding-left:10px; 
+            color: #000;
+            line-height: 1.4;
+            vertical-align: top;
+            display: inline-block;
+        }
+    }
+    .index-head-right{
+        float: right;
+        margin-right: -1px;
+        .action-buttons{
+            margin-top: 16px;
+            .button-item{
+                border-right: 1px solid #ddd;
+                display: inline-block;
+                padding: 0 20px;
+                line-height: 1;
+                i{
+                    font-size: 16px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    &:hover{
+                        color: blue;
+                    }
+                }
+                .select-company{
+                    color: #000;
+                    .company-name{
+                        &:hover{
+                            color: blue;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
 }

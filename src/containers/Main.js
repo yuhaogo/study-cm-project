@@ -21,7 +21,6 @@ class AppComponent extends React.Component {
     let indexOrLogin='';
     const {SystemPostion}=this.props.loginTypes;
     const {isLogin}=this.props.loginTypes;
-    debugger;
     indexOrLogin=isLogin?'Index':SystemPostion;
     return (
         indexOrLogin ==='Index' ? <Index />:<Login selectCompany={this.selectCompany} />
