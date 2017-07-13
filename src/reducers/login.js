@@ -1,21 +1,28 @@
+import cookie from 'js-cookie';
+
 const initialState={
-    loginType:'userLogin'
+    SystemPostion:'Login',
+    loginType:'userLogin',
+    companyList:[],
+    isLogin:cookie.get('isLogin')?true:false
 }
 
 export default (state=initialState,action)=>{
     switch(action.type){
         case 'LOGIN_CG':
-            debugger;
-            var companyList=[];
-            var comItems= action.payload.Result;
-            for (var i = 0; i < comItems.length; i++) {
-                companyList.push(comItems[i]);
-            }
-            console.log(companyList);
-            let newState={
-                loginType:'companySelect'
+            var comItems= action.payload;
+            const newState={
+                loginType:'companySelect',
+                companyList:comItems
             }
             return Object.assign({},state,newState);
+        case 'LOGIN_INDEX':
+            debugger;
+            const indexState={
+                SystemPostion:'Index'
+            }
+            var test=Object.assign({},state,indexState);
+            return test;
         default:
             return state;
     }

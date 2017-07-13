@@ -6,7 +6,6 @@ import { API_CONFIG } from './../config/api';
 import { Modal } from 'antd';
 
 function checkOut401(res) {
-    debugger;
     console.log(res.headers.get('Content-Type'));
     if(res.status===401){
         Modal.error({

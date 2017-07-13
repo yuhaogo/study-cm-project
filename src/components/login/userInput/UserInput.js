@@ -1,7 +1,7 @@
 
 require('antd/lib/input/style/css');
 require('antd/lib/button/style/css');
-require('./userinput.less');
+require('../loginMods.less');
 import React from 'react';
 import {Input,Button} from 'antd';
 
@@ -18,7 +18,6 @@ class UserInput extends React.Component{
     }
     handleClick=(e)=>{
        this.props.login(userInfo.Username,userInfo.pwd);
-
         e.stopPropagation();
     }
     getFallBack=(res)=>{
