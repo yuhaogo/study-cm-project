@@ -26,6 +26,7 @@ export const cFetch=(apiUrl,param)=>{
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
+    param.credentials= 'include';
     return fetch(baseUrl,param)
     .then(checkOut401)
     .then(dataJson)

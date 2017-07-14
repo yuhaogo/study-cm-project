@@ -1,5 +1,6 @@
 .index-head{
     height: 50px;
+    overflow-x: hidden;
     .index-head-left{
         margin: 10px 0 0 10px;
         float: left;
@@ -35,6 +36,7 @@
                 }
                 .select-company{
                     color: #000;
+                    position: relative;
                     .company-name{
                         &:hover{
                             color: blue;
@@ -45,5 +47,30 @@
             }
         }
         
+    }
+}
+//选择公司弹出框
+.company-box{
+    .company-item{
+        height: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        border-radius: 3px;
+        position: relative;
+        &:hover{
+            background-color: #ddd;
+            color: #fff;
+        }
+        &.isActive{
+             background-color: #ddd;
+             color: #fff;
+            .tmfont{
+                position: absolute;
+                left: 2px;
+                color: blue!important;
+            }
+        }
     }
 }

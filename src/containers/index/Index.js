@@ -1,31 +1,35 @@
 import React from 'react';
-// import {connect} from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import actions from 'actions/user';
-import IndexHead from '../../components/index/IndexHead';
+import IndexHeader from '../../components/index/header/IndexHeader';
+import IndexNavs from '../../components/index/nav/Navs';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import actions from 'actions/indexNavs';
  
 
 //index页
 class Index extends React.Component{
     
+    componentDidMount=()=>{
+        var {actions}=this.props;
+        actions.getPower('/api/System/SystemMenuActionGet');
+    }
     render(){
         return(
             <div className="indexMain">
-               <IndexHead />
+               <IndexHeader />
+               <IndexNavs />
             </div>
         )
     }
-    
 }
-// function mapStateToProps(state){
-//     const { loginTypes }=state;
-//     return {
-//         loginTypes
-//     }
-// }
-// function mapDicpatchToProps(dicpatch){
-//     return {
-//         actions:bindActionCreators(actions,dicpatch)
-//     }
-// }
-export default Index;
+const mapStateToProps=(state)=>{
+    return{
+        state
+    }
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        actions:bindActionCreators(actions,dispatch)
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Index);

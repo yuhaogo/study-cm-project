@@ -6,14 +6,12 @@ let actions ={
         return (dispatch)=> {
             cFetch(url,{ method: 'POST', body: JSON.stringify(creds)}).then(function(res){
                 var _data=res.Result;
+                cookie.set('usercache',JSON.stringify({SessionKey:res.SessionKey}));
                 dispatch({
                     type: 'LOGIN_CG',
                     fallback: fbk,
                     payload: _data
                 })
-            }).then((res)=>{
-                console.log(res);
-                cookie.set('isLogin','isLogin');
             })
             
         }
@@ -21,12 +19,15 @@ let actions ={
     SelectCompany:(url,creds,fbk)=>{
         return (dispatch)=> {
             cFetch(url,{ method: 'POST', body: JSON.stringify(creds)}).then(function(res){
-                var _data=res.Result;
+                var _data=res.Result||{};
+                _data.CompanyId=creds.CompanyId;
                 dispatch({
                     type: 'LOGIN_INDEX',
                     fallback: fbk,
                     payload: _data
                 })
+            }).then(()=>{
+                cookie.set('isLogin','isLogin');
             })
             
         }

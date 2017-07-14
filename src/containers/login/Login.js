@@ -1,4 +1,4 @@
-require('./login.less');
+require('./Login.less');
 
 import React from 'react';
 import {connect} from 'react-redux';

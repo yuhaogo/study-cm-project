@@ -19,6 +19,7 @@ class CompanySelect extends React.Component{
     render(){
         const {options}=this.props;
         var companyList=[];
+        const {Option}=Select;
         companyList.push(<Option value=""key="1" >请选择公司</Option>);
         options.forEach(function(item) {
             companyList.push(<Option value={item.CompanyId} key={item.CompanyId} >{item.CompanyName}</Option>);
@@ -27,9 +28,7 @@ class CompanySelect extends React.Component{
             <div className="login-info">
                 <ul>
                     <li className="login-input-item">
-                        <Select className="type-select" defaultValue="" onChange={this.selectCompany}  >
-                            {companyList}
-                        </Select>
+                        <Select className="type-select" defaultValue="" onChange={this.selectCompany} children= {companyList} ></Select>
                     </li>
                     <li className="login-input-item">
                         <Button className="type-button" type="primary" onClick={this.HandleClick}>Login</Button>
