@@ -1,0 +1,15 @@
+{
+    "Result":[
+        {
+            "CompanyId":"15f2af71-585b-4822-aa8e-231917be3600",
+            "CompanyName":"恒瑞"
+        },
+        {
+            "CompanyId":"72012ed3-0a4f-45f8-ac16-f051a207895b",
+            "CompanyName":"嘉兴太美医疗科技有限公司2"
+        }
+    ],
+    "Error":"Error",
+    "SessionKey":"SessionKey",
+    "Success":true
+}

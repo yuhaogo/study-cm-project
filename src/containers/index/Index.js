@@ -11,7 +11,7 @@ class Index extends React.Component{
     
     componentDidMount=()=>{
         var {actions}=this.props;
-        actions.getPower('/api/System/SystemMenuActionGet');
+        actions.getPower('/system/SystemMenuActionGet');
     }
     render(){
         return(

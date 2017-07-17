@@ -1,24 +1,16 @@
 const initialState={
-    FileManager:{
-        IsView:false,
-        FilePower:{
-
-        },
-        FolderPower:{
-
-        }
-    }
+    MenuItems:[]
 }
 
 export default (state=initialState,actions)=>{
     //头部相关
    switch(actions.type){
         case 'INDEX_GETPOWER':
-            const {MenuItems,SystemType}=actions.payload;
-            console.log(MenuItems);
-            console.log(SystemType);
-
-            return state
+            const {MenuItems}=actions.payload;
+            var menuStates={
+                MenuItems:MenuItems
+            }
+            return Object.assign({},state,menuStates);
         default :
             return state;
         

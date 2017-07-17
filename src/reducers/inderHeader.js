@@ -1,9 +1,7 @@
 const initialState={
-    NowCompanyId:'',
-    Username:'',
-    CompanyBox:{
-        isShow:false
-    }
+    NowCompanyId:localStorage.getItem('NowCompanyId')||'',
+    Username:localStorage.getItem('Username')||'',
+    CompanyList:localStorage.getItem('Companys')
 }
 
 export default (state=initialState,actions)=>{

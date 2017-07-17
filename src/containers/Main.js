@@ -15,7 +15,7 @@ class AppComponent extends React.Component {
   selectCompany=(val)=> {
       var comId=val;
       let {actions}=this.props;
-          actions.SelectCompany('/api/User/RefreshToken',{CompanyId:comId});
+          actions.SelectCompany('user/RefreshToken',{CompanyId:comId});
   }
   render() {
     let indexOrLogin='';

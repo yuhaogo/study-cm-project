@@ -4,8 +4,7 @@ const initialState={
     SystemPostion:'Login',
     loginType:'userLogin',
     companyList:localStorage.getItem('Companys'),
-    isLogin:cookie.get('isLogin')?true:false,
-    NowCompanyId:localStorage.getItem('NowCompanyId')
+    isLogin:cookie.get('isLogin')?true:false
 }
 export default (state=initialState,action)=>{
     switch(action.type){
@@ -20,9 +19,9 @@ export default (state=initialState,action)=>{
         case 'LOGIN_INDEX':
             debugger;
             localStorage.setItem('NowCompanyId',action.payload.CompanyId);
+            localStorage.setItem('Username',action.payload.Name);
             const indexState={
-                SystemPostion:'Index',
-                NowCompanyId:action.payload.CompanyId
+                SystemPostion:'Index'
             }
             var test=Object.assign({},state,indexState);
             return test;

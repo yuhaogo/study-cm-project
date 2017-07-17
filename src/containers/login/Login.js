@@ -18,7 +18,7 @@ class Login extends React.Component{
         var userName=u,
             pwd=p;
         let {actions}=this.props;
-            actions.UserLogin('/api/User/Login',{UserName:userName,PassWord:pwd});
+            actions.UserLogin('user/Login',{UserName:userName,PassWord:pwd});
     }
     render(){
         const {loginType}=this.props.loginTypes;

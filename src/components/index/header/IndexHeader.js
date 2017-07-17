@@ -14,9 +14,9 @@ class IndexHead extends React.Component{
     render(){
         var companyItems=[];
         var companyName='';
-        const {CompanyInfo:{companyList,NowCompanyId}}=this.props;
-        if(companyList){
-            var companys=typeof(companyList)==='string'?JSON.parse(companyList):companyList;
+        const {CompanyList,NowCompanyId,Username}=this.props.indexHeader;
+        if(CompanyList){
+            var companys=typeof(CompanyList)==='string'?JSON.parse(CompanyList):CompanyList;
             companys.forEach(function(item,index) {
                 if(item.CompanyId===NowCompanyId) {
                     companyName=item.CompanyName;
@@ -39,7 +39,7 @@ class IndexHead extends React.Component{
                 </div>
                 <div className="index-head-right" >
                     <ActionButton children={[
-                        <SelectCompany companyName={companyName} userName="喻浩" children={companyItems} />,
+                        <SelectCompany companyName={companyName} userName={Username} children={companyItems} />,
                         <i className="tmfont tm-icon-lock"></i>,
                         <i className="tmfont tm-icon-edit4"></i>,
                         <i className="tmfont tm-icon-update"></i>,
@@ -52,10 +52,10 @@ class IndexHead extends React.Component{
     }
 }
 const mapStateToProps=(state)=>{
-    const { loginTypes,indexHeader }= state;
+    const { indexHeader }= state;
+    debugger;
     return{
-        indexHeader,
-        CompanyInfo:loginTypes
+        indexHeader
     }
 }
 const mapDispatchToProps=(dispatch)=>{
