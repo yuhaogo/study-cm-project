@@ -1,12 +1,12 @@
 import login from './login';
-import inderHeader from './inderHeader';
-import inderBody from './indexBody';
+import indexHeader from './inderHeader';
+import indexBody from './indexBody';
 import {combineReducers } from 'redux'; //合并reducers
 
 const rootReducer=combineReducers({
     loginTypes:login,
-    indexHeader:inderHeader,
-    indexBody:inderBody
+    indexHeader:indexHeader,
+    indexBody:indexBody
 })
 
 export default rootReducer;

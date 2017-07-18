@@ -4,7 +4,7 @@ import ActionButton from './ActionBtn';
 import SelectCompany from './SelectCompany';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import actions from 'actions/indexheader';
+import actions from 'actions/indexActionHeader';
 
 class IndexHead extends React.Component{
     //切换公司
@@ -53,7 +53,6 @@ class IndexHead extends React.Component{
 }
 const mapStateToProps=(state)=>{
     const { indexHeader }= state;
-    debugger;
     return{
         indexHeader
     }

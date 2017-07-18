@@ -3,6 +3,7 @@
         "MenuItems":[
             {
                 "Id":"100",
+                "Code":100,
                 "Children":[{
                     "Id":"110",
                     "Children":[],
@@ -26,6 +27,7 @@
             },
             {
                 "Id":"200",
+                "Code":200,
                 "Children":[
                     {
                         "Id":"210",
