@@ -17,7 +17,6 @@ export default (state=initialState,action)=>{
             }
             return Object.assign({},state,newState);
         case 'LOGIN_INDEX':
-            debugger;
             localStorage.setItem('NowCompanyId',action.payload.CompanyId);
             localStorage.setItem('Username',action.payload.Name);
             const indexState={

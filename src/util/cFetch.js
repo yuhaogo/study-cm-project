@@ -5,6 +5,7 @@ require('es6-promise').polyfill();
 import { API_CONFIG } from './../config/api';
 import { Modal } from 'antd';
 
+//var api_host="http://127.0.0.1:91"
 function checkOut401(res) {
     console.log(res.headers.get('Content-Type'));
     if(res.status===401){
@@ -27,6 +28,7 @@ export const cFetch=(apiUrl,param)=>{
         'Content-Type': 'application/json'
     }
     param.credentials= 'include';
+    //param.mode='no-cors';
     return fetch(baseUrl,param)
     .then(checkOut401)
     .then(dataJson)

@@ -6,7 +6,6 @@ const initialState={
 }
 
 export default (state=initialState,actions)=>{
-    debugger;
     //头部相关
    switch(actions.type){
         case 'INDEX_GETPOWER':
@@ -17,7 +16,6 @@ export default (state=initialState,actions)=>{
             return Object.assign({},state,menuStates);
         case 'INDEX_CHANGE_NAV':
             const activeCode=actions.payload;
-            debugger;
             var menuStates={
                 Navs:{
                     ActiveCode:activeCode

@@ -1,11 +1,11 @@
 
-@font-face {font-family: "tmfont";
+@font-face {
   font-family: 'tmfont';  /* project id 291760 */
-  src: url('//at.alicdn.com/t/font_262sggt60znkx1or.eot');
-  src: url('//at.alicdn.com/t/font_262sggt60znkx1or.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_262sggt60znkx1or.woff') format('woff'),
-  url('//at.alicdn.com/t/font_262sggt60znkx1or.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_262sggt60znkx1or.svg#tmfont') format('svg');
+  src: url('//at.alicdn.com/t/font_e49rqa8n8uygmn29.eot');
+  src: url('//at.alicdn.com/t/font_e49rqa8n8uygmn29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_e49rqa8n8uygmn29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_e49rqa8n8uygmn29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_e49rqa8n8uygmn29.svg#tmfont') format('svg');
 }
 
 .tmfont {
@@ -271,4 +271,33 @@
 .tm-icon-layer:before { content: "\e63a"; }
 
 .tm-icon-pointer:before { content: "\e63b"; }
+.tm-icon-success:before { content: "\e63f"; }
+
+.tm-icon-arrow-right:before { content: "\e640"; }
+
+.tm-icon-arrow-left:before { content: "\e641"; }
+
+.tm-icon-doc:before { content: "\e643"; }
+
+.tm-icon-bmp:before { content: "\e644"; }
+
+.tm-icon-jpg:before { content: "\e645"; }
+
+.tm-icon-jpeg:before { content: "\e646"; }
+
+.tm-icon-gif:before { content: "\e647"; }
+
+.tm-icon-ppt:before { content: "\e648"; }
+
+.tm-icon-png:before { content: "\e649"; }
+
+.tm-icon-pdf:before { content: "\e64a"; }
+
+.tm-icon-pptx:before { content: "\e64b"; }
+
+.tm-icon-docx:before { content: "\e64c"; }
+
+.tm-icon-xls:before { content: "\e64d"; }
+
+.tm-icon-xlsx:before { content: "\e64e"; }
 

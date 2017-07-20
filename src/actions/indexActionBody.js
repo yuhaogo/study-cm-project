@@ -29,12 +29,6 @@ let actions ={
                 })
             })
         }
-    },
-    changeNavs:(activeCode,dispatch)=>{
-        dispatch({
-            type:'INDEX_CHANGE_NAV',
-            payload:activeCode
-        })
     }
 }
 export default actions;

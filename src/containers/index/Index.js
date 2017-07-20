@@ -1,3 +1,4 @@
+require('./Index.less');
 import React from 'react';
 import IndexHeader from '../../components/index/header/IndexHeader';
 import IndexBody from '../../components/index/body/IndexBody';
@@ -23,8 +24,8 @@ class Index extends React.Component{
         }
         return(
             <div className="indexMain">
-               <IndexHeader />
-               <IndexBody navs={navs} content={Navs.content} activeCode={Navs.ActiveCode} />
+               <IndexHeader  navs={navs} />
+               <IndexBody content={Navs.content} activeCode={Navs.ActiveCode} />
             </div>
         )
     }

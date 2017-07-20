@@ -9,7 +9,6 @@ let companyInfo={
 class CompanySelect extends React.Component{
     
     HandleClick=(e)=>{
-        debugger;
         this.props.SelectCompany(companyInfo.CompanyId);
         e.stopPropagation();
     }

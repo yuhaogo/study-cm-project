@@ -8,7 +8,6 @@ class IndexNavs extends React.Component{
             if(!child) return;
             let events={};
             events.onClick=this.props.onNavClick.bind(this,child.props.code);
-            debugger;
             let classes='nav-item';
             classes +=child.props.active?' isActive':'';
 

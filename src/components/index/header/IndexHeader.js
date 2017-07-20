@@ -3,13 +3,32 @@ import React from 'react';
 import ActionButton from './ActionBtn';
 import SelectCompany from './SelectCompany';
 import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
 import actions from 'actions/indexActionHeader';
+import IndexNavs from './IndexNavs';
+import Path from 'components/model/Path';
 
 class IndexHead extends React.Component{
+    //导航切换
+    changeActive=(activeCode,e)=>{
+        var e=e||event;
+        const {actions}=this.props;
+        actions.changeNavs(activeCode);
+        e.stopPropagation();
+        e.preventDefault();
+    }
     //切换公司
     SelectCompany=(id)=>{
         console.log(id);
+    }
+    //获取导航栏
+    getNavs=()=>{
+        const {navs} = this.props;
+        const navStats={
+            panels:navs,
+            onNavClick:this.changeActive
+        }
+        return (<IndexNavs {...navStats}/>)
     }
     render(){
         var companyItems=[];
@@ -28,25 +47,29 @@ class IndexHead extends React.Component{
         }
         return(
             <div className="index-head">
-                <div className="index-head-left">
-                    <div className="system-logo">
-                        <img src={require('../../../images/etmfLogo.png')} />
+                <div className="index-head-info">
+                    <div className="index-head-left">
+                        <div className="system-logo">
+                            <img src={require('../../../images/etmfLogo.png')} />
+                        </div>
+                        <div className="system-name">
+                            <p>eTMF</p>
+                            <p>electronic Trial Master File System</p>
+                        </div>
                     </div>
-                    <div className="system-name">
-                        <p>eTMF</p>
-                        <p>electronic Trial Master File System</p>
+                    <div className="index-head-right" >
+                        <ActionButton children={[
+                            <SelectCompany companyName={companyName} userName={Username} children={companyItems} />,
+                            <i className="tmfont tm-icon-lock"></i>,
+                            <i className="tmfont tm-icon-edit4"></i>,
+                            <i className="tmfont tm-icon-update"></i>,
+                            <i className="tmfont tm-icon-export"></i>,
+                            <i className="tmfont tm-icon-dropout"></i>
+                        ]} />
                     </div>
                 </div>
-                <div className="index-head-right" >
-                    <ActionButton children={[
-                        <SelectCompany companyName={companyName} userName={Username} children={companyItems} />,
-                        <i className="tmfont tm-icon-lock"></i>,
-                        <i className="tmfont tm-icon-edit4"></i>,
-                        <i className="tmfont tm-icon-update"></i>,
-                        <i className="tmfont tm-icon-export"></i>,
-                        <i className="tmfont tm-icon-dropout"></i>
-                    ]} />
-                </div>
+                {this.getNavs()}
+                <Path paths={[{Name:'我的文档'},{Name:'Yh'}]} />
             </div>
         )
     }
@@ -57,11 +80,7 @@ const mapStateToProps=(state)=>{
         indexHeader
     }
 }
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        actions:bindActionCreators(actions,dispatch)
-    }
-}
-
-
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(actions, dispatch)
+});
 export default connect(mapStateToProps,mapDispatchToProps)(IndexHead);
