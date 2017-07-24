@@ -29,6 +29,17 @@ let actions ={
                 })
             })
         }
+    },
+    getFolderItems:(url)=>{
+        return (dispatch)=> {
+            cFetch(url,{ method: 'GET'}).then(function(res){
+                var _data=res.FolderItems;
+                dispatch({
+                    type: 'INDEX_GETFOLDERS',
+                    payload: _data
+                })
+            })
+        }
     }
 }
 export default actions;

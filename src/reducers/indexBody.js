@@ -2,7 +2,8 @@ const initialState={
     MenuItems:[],
     Navs:{
         ActiveCode:100
-    }
+    },
+    FolderItems:[]
 }
 
 export default (state=initialState,actions)=>{
@@ -22,6 +23,12 @@ export default (state=initialState,actions)=>{
                 }
             }
             return Object.assign({},state,menuStates);
+        case 'INDEX_GETFOLDERS':
+            const folders=actions.payload;
+            var newStates={
+                FolderItems:folders
+            }
+            return Object.assign({},state,newStates);
         default :
             return state;
         
