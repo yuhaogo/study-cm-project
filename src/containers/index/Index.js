@@ -1,4 +1,10 @@
 require('./Index.less');
+require('antd/lib/menu/style/css');
+require('antd/lib/icon/style/css');
+require('antd/lib/tree/style/css');
+require('antd/lib/input/style/css');
+require('antd/lib/select/style/css');
+require('antd/lib/table/style/css');
 import React from 'react';
 import IndexHeader from '../../components/index/header/IndexHeader';
 import IndexBody from '../../components/index/body/IndexBody';

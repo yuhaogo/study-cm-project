@@ -3,7 +3,24 @@ const initialState={
     Navs:{
         ActiveCode:100
     },
-    FolderItems:[]
+    FolderItems:[],
+    Buttons:[
+        {
+            Type:'NewFolder'
+        },
+        {
+            Type:'ImportTemplate'
+        },
+        {
+            Type:'SimpleUpload'
+        },
+        {
+            Type:'BatchUpload'
+        },
+        {
+            Type:'BatchSubmit'
+        }
+    ]
 }
 
 export default (state=initialState,actions)=>{
