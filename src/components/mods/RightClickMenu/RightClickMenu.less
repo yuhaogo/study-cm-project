@@ -1,0 +1,20 @@
+.right-click-menu{
+    width: 200px;
+    border: 1px solid #ddd;
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    opacity: 0;
+    transition:opacity  0.25s ease;
+    li.rc-item{
+        height: 30px;
+        line-height: 30px;
+        border-bottom: 1px solid #ddd;
+        padding-left: 15px;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        &:hover{
+            background-color: #ddd;
+        }
+    }
+}

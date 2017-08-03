@@ -1,9 +1,20 @@
 import React from 'react';
 import {Button,Input,Select,Table} from 'antd';
+import RightClickMenu from '../RightClickMenu/RightClickMenu';
 const InputGroup=Input.Group;
 const Option=Select.Option;
 
 class RightTable extends React.Component{
+    constructor(){
+        super();
+        this.state={
+            isShow:false,
+            pos:{
+                top:0,
+                left:0
+            }
+        }
+    }
     getBtns=()=>{
         var btns=[];
         let {Buttons} =this.props;
@@ -30,6 +41,28 @@ class RightTable extends React.Component{
         }
         return btns;
     }
+    //右击
+    handleRightClick=(row,i,e)=>{
+        e.preventDefault();
+        this.setState({
+            isShow:false
+        })
+        if(e.button==2){
+            let top= e.pageY || e.clientY;
+            let left= e.pageX || e.clientX;
+            setTimeout(function(){
+                this.setState({
+                    isShow:true,
+                    pos:{
+                        top:top,
+                        left:left
+                    }
+                })
+            }.bind(this),125)
+            
+        }
+
+    }
     render(){
         const btns=this.getBtns();
         const columns=[
@@ -37,7 +70,8 @@ class RightTable extends React.Component{
                 title:'名称',
                 dataIndex:'Name',
                 key:'Name',
-                width:200
+                width:200,
+                onCellClick:this.handleClick
             },
             {
                 title:'类型',
@@ -92,7 +126,8 @@ class RightTable extends React.Component{
                 FileSource:'',
                 VersionDate:'',
                 CreateTime:'2017-07-19 17:53:50',
-                ModifiTime:'2017-07-19 19:53:50'
+                ModifiTime:'2017-07-19 19:53:50',
+                rowkey:'1'
             },
             {
                 key:'2',
@@ -282,6 +317,7 @@ class RightTable extends React.Component{
                 ModifiTime:'2017-07-19 19:53:50'
             }
         ]
+        const {isShow,pos}=this.state;
         return(
             <div className="right-table">
                 <div className="right-title">
@@ -300,7 +336,8 @@ class RightTable extends React.Component{
                     </div>
                 </div>
                 <div className="right-main">
-                     <Table columns={columns} dataSource={dataSource} onChange={this.handleChange} pagination={false} scroll={{y:window.innerHeight-270}} />
+                    <RightClickMenu isShow={isShow} position={pos} />
+                    <Table columns={columns} dataSource={dataSource} onRowClick={this.handleRightClick} onChange={this.handleChange} pagination={false} scroll={{y:window.innerHeight-270}} />
                 </div>
             </div>
         )
