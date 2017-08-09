@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button,Input,Select,Table} from 'antd';
 import RightClickMenu from '../RightClickMenu/RightClickMenu';
+import NewFolder from '../../modal/NewFolder';
 const InputGroup=Input.Group;
 const Option=Select.Option;
 
@@ -333,6 +334,7 @@ class RightTable extends React.Component{
                             </Select>
                             <Input style={{width:200}} />
                         </InputGroup>
+                        <NewFolder/>
                     </div>
                 </div>
                 <div className="right-main">

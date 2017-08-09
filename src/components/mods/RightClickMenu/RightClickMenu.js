@@ -2,7 +2,6 @@ require('./RightClickMenu.less');
 import React from 'react';
 
 const RightClickMenu = (props)=>{
-    debugger;
     const {isShow,position}=props;
     return(
         <div className="right-click-menu" style={{top:position.top,left:position.left,opacity:isShow?1:0}}>
