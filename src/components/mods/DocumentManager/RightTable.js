@@ -13,8 +13,15 @@ class RightTable extends React.Component{
             pos:{
                 top:0,
                 left:0
+            },
+            visible:{
+                newFolder:false
             }
         }
+    }
+    newFolder=(e)=>{
+        e.stopPropagation();
+        this.setState({visible:{newFolder:true}})
     }
     getBtns=()=>{
         var btns=[];
@@ -23,7 +30,7 @@ class RightTable extends React.Component{
             var item = Buttons[i];
              switch(item.Type){
                 case 'NewFolder':
-                    btns.push(<Button type="primary" key={i}>新建文件夹</Button>)
+                    btns.push(<Button onClick={this.newFolder} type="primary" key={i}>新建文件夹</Button>)
                     break;
                 case 'ImportTemplate':
                     btns.push(<Button type="primary" key={i}>导入模板</Button>)
@@ -334,7 +341,7 @@ class RightTable extends React.Component{
                             </Select>
                             <Input style={{width:200}} />
                         </InputGroup>
-                        <NewFolder/>
+                        <NewFolder visible={this.state.visible.newFolder}/>
                     </div>
                 </div>
                 <div className="right-main">

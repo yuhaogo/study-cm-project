@@ -5,6 +5,8 @@ require('antd/lib/tree/style/css');
 require('antd/lib/input/style/css');
 require('antd/lib/select/style/css');
 require('antd/lib/table/style/css');
+require('antd/lib/modal/style/css');
+require('antd/lib/form/style/css');
 import React from 'react';
 import IndexHeader from '../../components/index/header/IndexHeader';
 import IndexBody from '../../components/index/body/IndexBody';
